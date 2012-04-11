@@ -3,6 +3,7 @@ Roundtabler::Application.routes.draw do
 
 
 
+  resources :profiles
   resources :members
   resources :sessions
   resources :password_resets
@@ -10,6 +11,9 @@ Roundtabler::Application.routes.draw do
   get 'signup', to: 'members#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'new_profile', to: 'profiles#new', as: 'new_profile'
+  get 'edit_profile', to: 'profiles#edit', as: 'edit_profile'
+  get 'show_profile', to: 'profile#show', as: 'show_profile'
 
   get "pages/contact"
 
