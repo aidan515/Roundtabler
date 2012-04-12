@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-attr_accessible :description, :interest_1, :interest_2, :hobby_1, :hobby_2, :employer, :birthday
+attr_accessible :description, :interest_1, :interest_2, :hobby_1, :hobby_2, :employer, :birthday, :member_id
 validates_presence_of :description, :length => { :maximum => 80 }
 #validates_presence_of :member_id
 validates_presence_of :interest_1

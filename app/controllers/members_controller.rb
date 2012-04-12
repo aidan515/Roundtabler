@@ -7,9 +7,10 @@ class MembersController < ApplicationController
     @member = Member.new(params[:member])
     if @member.save
       cookies[:auth_token] = @member.auth_token
-      redirect_to root_url, notice: "Thank you for signing up!"
+      redirect_to new_profile_path, notice: "Thank you for signing up!"
     else
       render "new"
     end
   end
+  
 end
