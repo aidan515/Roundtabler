@@ -1,6 +1,6 @@
 class Member < ActiveRecord::Base
 has_secure_password
-has_one :profile
+has_one :profile, :dependent => :destroy
 attr_accessible :email, :password, :password_confirmation, :full_name, :city
 validates_presence_of :full_name, :city
 validates_uniqueness_of :email 

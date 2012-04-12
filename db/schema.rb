@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410141316) do
+ActiveRecord::Schema.define(:version => 20120411105836) do
 
   create_table "members", :force => true do |t|
     t.string   "email"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(:version => 20120410141316) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "description"
+    t.string   "interest_1"
+    t.string   "interest_2"
+    t.string   "hobby_1"
+    t.string   "hobby_2"
+    t.string   "employer"
+    t.date     "birthday"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "member_id"
   end
 
 end
