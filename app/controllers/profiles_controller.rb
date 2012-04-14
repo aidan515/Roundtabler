@@ -10,6 +10,15 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def update
+    @profile = Profile.find(params[:id])
+    if @profile.update_attributes(params[:profile])
+      redirect_to @profile, notice: 'Profile was successfully updated.'
+    else
+      render action: "edit"
+    end
+  end
+  
   def create
     @profile = current_member.build_profile(params[:profile])
     if @profile.save

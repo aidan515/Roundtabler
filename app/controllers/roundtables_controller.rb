@@ -1,0 +1,2 @@
+class RoundtablesController < ApplicationController
+end

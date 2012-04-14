@@ -1,5 +1,10 @@
-<h1>Exhibit profile</h1></br>
-
-<h4>One-liner <%= @profile.description%></h4>
-
+<%= image_tag @profile.image_url(:thumb).to_s%>
+<h1><%= @profile.member.full_name%></h1></br>
+<h4>Email: <%= @profile.member.email%>
+<h4>One-liner: <%= @profile.description%></h4>
+<h4>Business interests: <%= @profile.interest_1 %>, <%= @profile.interest_2 %>
+<h4>Personal interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2%>
+<h4>Employer: <%= @profile.employer%> </br></br>
 <%= link_to "Edit profile", edit_profile_path %>
+
+
