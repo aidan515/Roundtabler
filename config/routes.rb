@@ -3,7 +3,6 @@ Roundtabler::Application.routes.draw do
 
 
   resources :roundtables
-
   resources :profiles
   resources :members
   resources :sessions

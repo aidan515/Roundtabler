@@ -20,7 +20,7 @@
           <ul class="nav">
 			<% if current_member %>
 			<li><%= link_to "Logout", logout_path %></li>
-            <li><%= link_to "Edit profile", edit_profile_path %>
+			<li><%= link_to "Create roundtable", new_roundtable_path %>
 			<% else %>
 			<li><%= link_to "Login", login_path %></li>
             <li><%= link_to "Signup", signup_path %></li>
