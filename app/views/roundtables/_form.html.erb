@@ -4,7 +4,7 @@
 <%= f.input :attendee_number, :as => :radio_buttons, :collection => 4..8 %>
 <%= f.input :dinner_on, :label => "Date", :as => :date, :start_date => Date.today.day, :start_month => Date.today.month, :start_year => Date.today.year, :order => [:day, :month, :year] %>
 <%= f.input :kick_off, :label => "Time", :as => :time, :minute_step => 5 %>
-
+<%= f.association :venue, :default => false %>
 
 </div>
 <div class= 'form-actions'>

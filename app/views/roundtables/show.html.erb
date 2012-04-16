@@ -2,3 +2,5 @@
 <h4>Host: <%= image_tag @roundtable.member.profile.image_url(:thumb).to_s%>
 <h4>Time: <%= @roundtable.kick_off %>
 <h4>Date: <%= @roundtable.dinner_on %> </br></br>
+<h4>Restaurant: <%= @roundtable.venue.name %> <%= image_tag @roundtable.venue.venue_image_url(:thumb).to_s %>
+	

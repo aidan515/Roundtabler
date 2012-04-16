@@ -1,6 +1,6 @@
 <%= simple_form_for @venue, :html => { :class => 'form-horizontal' } do |f| %>
 <div class = 'form-inputs'>
-
+<%= f.file_field :venue_image%>
 <%= f.input :name %>
 <%= f.input :email %>
 <%= f.input :r_type, :label => "Restaurant Type" %>
