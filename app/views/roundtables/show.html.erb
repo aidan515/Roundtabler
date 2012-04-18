@@ -1,6 +1,20 @@
-<h1><%= @roundtable.topic %></h1></br>
-<h4>Host: <%= image_tag @roundtable.member.profile.image_url(:thumb).to_s%>
-<h4>Time: <%= @roundtable.kick_off %>
-<h4>Date: <%= @roundtable.dinner_on %> </br></br>
-<h4>Restaurant: <%= @roundtable.venue.name %> <%= image_tag @roundtable.venue.venue_image_url(:thumb).to_s %>
+<div class="box">
 	
+	<span class= "image">
+	<%= image_tag @roundtable.member.profile.image_url(:thumb).to_s%>	
+	</span>
+		<span class="event-box">
+			<div class="event-banner">
+			<%= @roundtable.topic %> hosted by <%= link_to "#{@roundtable.member.full_name}", root_path %>
+			</div>
+			<div class="venue-box">
+			Venue: <i><%= @roundtable.venue.name%>, <%= @roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
+			Date: <%= @roundtable.dinner_on.day%>/<%= @roundtable.dinner_on.mon %>/<%= @roundtable.dinner_on.year %></br>
+			Price: <span class="btn" data-toggle="button">£20</span>
+			</div>	
+		</span>
+		<span class="button-box">
+			<button class="btn">Request a seat</button>
+		</span>
+
+</div>

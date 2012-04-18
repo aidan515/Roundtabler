@@ -19,6 +19,10 @@ class RoundtablesController < ApplicationController
       @roundtable = Roundtable.find(params[:id])
     end
     
+    def index
+      @roundtables = Roundtable.all
+    end
+    
     def destroy
       @roundtable = Roundtable.find(params[:id])
       @roundtable.destroy

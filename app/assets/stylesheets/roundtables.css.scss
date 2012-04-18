@@ -1,3 +1,79 @@
 // Place all the styles related to the roundtables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.box{
+	width: 70%;
+	color: #000;
+	overflow: hidden;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	margin-bottom: 15px;
+	border-color: #dfdfdf;
+	border-style: solid;
+	border-width: 1px;
+}
+
+h2 {
+	line-height: 1.2em;
+	font-size: 1.25em;
+	font-weight: 700;
+	margin-bottom: 9px;
+}
+
+.image {
+	width: auto;
+	margin-right: 10px;
+	float: left; 
+	position: relative;
+	img {
+		margin-top: 10px;
+		margin-right: 10px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #dfdfdf;
+	}
+}
+
+.event-box {
+	width: 400px;
+	margin-right: 10px;
+	float: left;
+	position: relative;
+}
+	
+.event-banner {
+	width: auto;
+	float: left;
+	line-height: 1.28em;
+	padding-top: 10px;
+	padding-right: 15px;
+	padding-bottom: 13px;
+	padding-left: 15px;
+	font-size: 1.16em;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-color: #dfdfdf;
+	border-style: solid;
+	border-width: 1px;
+	background-color: rgb(233,243,250);
+	}	
+
+.venue-box {
+	width: auto;
+	padding-top: 10px;
+	padding-left: 15px;
+	font-size: 1em;
+	font-weight: bold;
+	position:relative;
+}
+
+.button-box {
+	float:right;
+	padding-top: 45px;
+	align: center;
+}
