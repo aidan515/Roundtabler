@@ -5,6 +5,58 @@
 <h4>Business interests: <%= @profile.interest_1 %>, <%= @profile.interest_2 %>
 <h4>Personal interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2%>
 <h4>Employer: <%= @profile.employer%> </br></br>
-<%= link_to "Edit profile", edit_profile_path %>
+<%= link_to "Edit profile", edit_profile_path %></br></br>
+<h3>Hosted roundtables</h3>
+<% @profile.member.roundtables.each do |roundtable| %>
+<div class="box">
+		<span class="event-box">
+			<div class="event-banner">
+			<%= roundtable.topic %> hosted by <%= link_to "#{roundtable.member.full_name}", root_path %>
+			</div>
+			<div class="venue-box">
+			Venue: <i><%= roundtable.venue.name%>, <%= roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
+			Date: <%= roundtable.dinner_on.day%>/<%= roundtable.dinner_on.mon %>/<%= roundtable.dinner_on.year %></br>
+			Price: <span class="btn" data-toggle="button">£20</span>
+			</div>	
+		</span>
+</div>
+<% roundtable.requests.each do |request|%>
+<div class="request-box">
+	<span class= "image">
+	<%= image_tag request.member.profile.image_url(:thumb).to_s%>	
+	</span>
+	<span class="request-details">
+	<%= link_to "#{request.member.full_name}", request.member.profile %> requested a seat at this roundtable.</br></br>
+	<% if request.confirm == "True"%>
+	<b> Request accepted </b>
+	<% else %>
+	<button class="btn" ><%= link_to "Accept this request", request_path(:roundtable_id => roundtable.id, :tester => '1'), :method => :put %></button>
+	</span>
+	<% end %>	
+</div>
+<% end %>
+<% end %>
 
-
+<% unless @profile.member.requests.empty? %>
+<h3>Requested roundtables</h3>
+<% @profile.member.requests.each do |request| %>
+<div class="box">
+		<span class="event-box">
+			<div class="event-banner">
+			<%= request.roundtable.topic %> hosted by <%= link_to "#{request.roundtable.member.full_name}", root_path %>. Status:
+			<%if request.confirm== "True" %>
+			<i>	Request confirmed</i>
+			<% else %>
+			<i> Request pending</i>
+			<% end %>
+			</div>
+			<div class="venue-box">
+			Venue: <i><%= request.roundtable.venue.name%>, <%= request.roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
+			Date: <%= request.roundtable.dinner_on.day%>/<%= request.roundtable.dinner_on.mon %>/<%= request.roundtable.dinner_on.year %></br>
+			Price: <span class="btn" data-toggle="button">£20</span>
+			</div>	
+		</span>
+</div>
+		
+		<% end %>
+<% end %>

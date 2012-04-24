@@ -1,9 +1,7 @@
 Roundtabler::Application.routes.draw do
   
-
-
   resources :venues
-
+  resources :requests
   resources :roundtables#, :shallow => true
   #resources :profiles
   resources :members 

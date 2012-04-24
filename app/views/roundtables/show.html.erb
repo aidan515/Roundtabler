@@ -14,7 +14,7 @@
 			</div>	
 		</span>
 		<span class="button-box">
-			<button class="btn">Request a seat</button>
+			<button class="btn"><%= link_to "Request a seat", requests_path(:roundtable_id => params[:roundtable_id]), :method => :post%></button>
 		</span>
 
 </div>

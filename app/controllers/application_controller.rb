@@ -21,5 +21,4 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "You do not have access to this page" unless current_member?(@member)
   end
   helper_method :correct_member
-  
 end
