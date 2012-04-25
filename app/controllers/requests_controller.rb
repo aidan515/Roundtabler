@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+   #before_filter :host_member, :only => [:destroy, :update]
+  
   def index
      @requests = Request.all
   end
@@ -20,7 +22,7 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request = Request.find_by_roundtable_id(params[:roundtable_id])
+    @request = Request.find_by_roundtable_id_and_member_id(params[:roundtable_id],params[:member_id])
     @request.confirm = "True"
     if @request.update_attributes(params[:request])
       redirect_to root_url, notice: 'Request was successfully confirmed.'
@@ -30,8 +32,8 @@ class RequestsController < ApplicationController
   end
   
   def destroy
-    @request = Request.find(params[:id])
+    @request = Request.find_by_roundtable_id_and_member_id(params[:roundtable_id], params[:member_id])
     @request.destroy
-    redirect_to current_user
+    redirect_to @request.roundtable.member.profile
   end
 end

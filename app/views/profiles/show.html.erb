@@ -30,7 +30,8 @@
 	<% if request.confirm == "True"%>
 	<b> Request accepted </b>
 	<% else %>
-	<button class="btn" ><%= link_to "Accept this request", request_path(:roundtable_id => roundtable.id, :tester => '1'), :method => :put %></button>
+	<button class="btn" ><%= link_to "Accept this request", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :put %></button>
+	<button class="btn" ><%= link_to "Decline this request", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :delete %></button>
 	</span>
 	<% end %>	
 </div>

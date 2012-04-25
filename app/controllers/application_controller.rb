@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "You do not have access to this page" unless current_member?(@member)
   end
   helper_method :correct_member
+  
+  def host_member
+    @request = Request.find_by_roundtable_id(params[:roundtable_id])
+    @member = @request.roundtable.member
+    redirect_to root_path, alert: "You cannot accept an invitation unless you are the host." unless current_member?(@member)
+  end
+  helper_method :host_member
 end
