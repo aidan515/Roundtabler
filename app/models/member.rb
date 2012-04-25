@@ -3,8 +3,9 @@ has_secure_password
 has_one :profile, :dependent => :destroy
 has_many :roundtables
 has_many :requests
-attr_accessible :email, :password, :password_confirmation, :full_name, :city
-validates_presence_of :full_name, :city
+belongs_to :city
+attr_accessible :email, :password, :password_confirmation, :full_name, :city_id
+validates_presence_of :full_name
 validates_uniqueness_of :email 
 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 validates_presence_of :email, :format => { :with => email_regex }

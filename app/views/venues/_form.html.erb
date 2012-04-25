@@ -6,7 +6,7 @@
 <%= f.input :r_type, :label => "Restaurant Type" %>
 <%= f.input :address_1, :label => "Address" %>
 <%= f.input :address_2, :label => "Address" %>
-<%= f.input :city %>
+<%= f.association :city, :default => false %>
 <%= f.input :post_code %>
 <%= f.input :phone_number %>
 

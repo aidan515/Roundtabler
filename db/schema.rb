@@ -11,18 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424090337) do
+ActiveRecord::Schema.define(:version => 20120425102645) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "members", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.string   "city"
     t.string   "full_name"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.integer  "city_id"
   end
 
   create_table "profiles", :force => true do |t|
@@ -64,13 +70,13 @@ ActiveRecord::Schema.define(:version => 20120424090337) do
     t.string   "r_type"
     t.string   "address_1"
     t.string   "address_2"
-    t.string   "city"
     t.string   "post_code"
     t.string   "email"
     t.string   "phone_number"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "venue_image"
+    t.integer  "city_id"
   end
 
 end
