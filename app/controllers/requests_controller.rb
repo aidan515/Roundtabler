@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-   #before_filter :host_member, :only => [:destroy, :update]
+   # before_filter :host_member, :only => [:destroy, :update]
   
   def index
      @requests = Request.all
@@ -9,12 +9,20 @@ class RequestsController < ApplicationController
   end
   
   def create
-    @request = current_member.requests.build(:roundtable_id => params[:roundtable_id])
-    if @request.save
-      redirect_to root_url, notice: "Thank you for your request, the host has been notified."
-    else
-      render "new", alert: "Failed to send request."
-    end
+       if current_member #&& !host_member
+        @request = current_member.requests.build(:roundtable_id => params[:roundtable_id])
+        if @request.save
+          @request.send_seat_request
+          # MemberMailer.seat_request(@request.member, @request.roundtable.member).deliver
+          redirect_to root_url, notice: "Thank you for your request, the host has been notified."
+        else
+          render "new", alert: "Failed to send request."
+        end
+      # elsif host_member
+           # redirect_to root_url, alert: "You cannot request a seat if you are the host."
+      else
+        redirect_to root_url, alert: "You must log in before requesting a seat."
+      end
   end
   
   def show

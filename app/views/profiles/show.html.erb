@@ -1,11 +1,11 @@
 <%= image_tag @profile.image_url(:thumb).to_s%>
-<h1><%= @profile.member.full_name%></h1></br>
-<h4>Email: <%= @profile.member.email%>
-<h4>One-liner: <%= @profile.description%></h4>
-<h4>Lives in: <%= @profile.member.city.name %>
-<h4>Business interests: <%= @profile.interest_1 %>, <%= @profile.interest_2 %>
-<h4>Personal interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2%>
-<h4>Employer: <%= @profile.employer%> </br></br>
+<p><h2><%= @profile.member.full_name%></h2></p>
+<p>Description: <%= @profile.description %>
+<p>Email: <%= @profile.member.email %></p>
+<p>Birthday: <%= @profile.birthday.day %> / <%= @profile.birthday.month %> / <%= @profile.birthday.year %>
+<p>Business Interests: <%= @profile.interest_1%> , <%= @profile.interest_2%></p>
+<p>Personal Interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2 %></p>
+<p>Employer: <%= @profile.employer%></p> </br>
 <%= link_to "Edit profile", edit_profile_path %></br></br>
 <h3>Hosted roundtables</h3>
 <% @profile.member.roundtables.each do |roundtable| %>

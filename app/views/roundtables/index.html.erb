@@ -1,21 +1,32 @@
+<div class="list-banner">
+	<%= select(:roundtable, :member_id,[["Aidan Corbett",1], ["Poush Bharadwaj",2]])%>
+</div>
 <% @roundtables.each do |roundtable| %>
-<div class="box">
-	
+<div class="box">	
 	<span class= "image">
-	<%= image_tag roundtable.member.profile.image_url(:thumb).to_s%>	
+	<%= image_tag roundtable.member.profile.image_url(:thumb).to_s%><br/> <%= link_to "#{roundtable.member.full_name}", roundtable.member.profile %>	
 	</span>
 		<span class="event-box">
 			<div class="event-banner">
-			<%= roundtable.topic %> hosted by <%= link_to "#{roundtable.member.full_name}", root_path %>
+			<%= roundtable.topic %> 
 			</div>
 			<div class="venue-box">
-			Venue: <i><%= roundtable.venue.name%>, <%= roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
-			Date: <%= roundtable.dinner_on.day%>/<%= roundtable.dinner_on.mon %>/<%= roundtable.dinner_on.year %></br>
-			Price: <span class="btn" data-toggle="button">£20</span>
-			</div>	
+			    <%= link_to "#{ roundtable.venue.name}, #{roundtable.venue.address_1}", root_path %></br>
+				<%= roundtable.dinner_on.strftime("%A")%>, <%= roundtable.dinner_on.day%> <%= roundtable.dinner_on.strftime("%b") %>
+			</div>
+			<div class = "Confirmed guests">
+				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
+				<% confirmed_guests.each do |request|%>
+				<%= image_tag request.member.profile.image_url(:micro).to_s%>
+				<% end %>
+			</div>			
 		</span>
+		<% unless roundtable.member == current_member %>
 		<span class="button-box">
-			<button class="btn"><%= link_to "Request a seat", requests_path(:roundtable_id => roundtable.id), :method => :post %></button>		
+					<button class="btn"><%= link_to "Request a seat", requests_path(:roundtable_id => roundtable.id), :method => :post %></button>		
 		</span>
+		<% end %>
+		
+	
 </div>
 <% end %>

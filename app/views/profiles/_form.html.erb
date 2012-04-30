@@ -1,6 +1,6 @@
 <%= simple_form_for @profile, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
 <div class = 'form-inputs'>
-<%= f.file_field :image%>
+<%= f.file_field :image, :label => "Profile photo" %>
 <%= f.input :description, :label => "One line description" %>
 <%= f.input :interest_1, :label => "Business interests" %>
 <%= f.input :interest_2, :label => "Business interests" %>

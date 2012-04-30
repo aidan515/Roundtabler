@@ -1,6 +1,6 @@
 class RoundtablesController < ApplicationController
-    # before_filter :authorize, :only => [:new, :show]
-    # before_filter :correct_member, :only => [:edit, :update]
+    before_filter :authorize, :only => [:new, :show]
+    before_filter :correct_member, :only => [:edit, :update]
 
     def new
       @roundtable = Roundtable.new

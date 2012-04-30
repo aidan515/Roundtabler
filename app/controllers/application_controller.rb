@@ -22,10 +22,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :correct_member
   
-  def host_member
-    @request = Request.find_by_roundtable_id(params[:roundtable_id])
-    @member = @request.roundtable.member
-    redirect_to root_path, alert: "You cannot accept an invitation unless you are the host." unless current_member?(@member)
-  end
-  helper_method :host_member
+  # def confirmed_guests
+  #   @confirmed_guests ||= Request.find_all_by_roundtable_id_and_confirm(params[:roundtable_id], "True") 
+  # end
+  # helper_method :confirmed_guests
+  
+  # def host_member
+  #     @roundtable = Roundtable.find(params[:id])
+  #     @member = @roundtable.member
+  #   end
+  #   helper_method :host_member
 end
