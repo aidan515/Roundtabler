@@ -1,0 +1,157 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$box-width: 700px;
+
+.container-inner{
+	width: $box-width;
+	padding-right: 10px;
+	padding-left: 10px;
+	
+	overflow: hidden;
+	padding-top: 7px;
+	margin-bottom: 0px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;	
+	-moz-border-radius-topright: 4px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;	
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border-color: #dfdfdf;
+	border-style: solid;
+	border-width: 1px;
+	font-size: 1.5em;
+	font-weight: 500;
+}
+
+/*=============================================================================
+   New styles for roundtables
+   ========================================================================== */
+
+.title {
+	border-bottom: 1px solid #BBBBBB;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	font-size: 12px;
+	font-weight: 400;
+	h1 {
+	font-size: 170%;
+	margin-bottom: 5px;
+	text-align: left;
+	font-weight: bold;
+	}
+}
+
+.desc {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 18px;
+	margin-bottom: 10px;
+}
+
+.reservation-box {
+	background: none;
+	border: 1px solid #BBBBBB;
+	height: auto;
+	margin: 0 12px 0 0;
+	width: 275px;
+	padding-bottom: 15px;
+}
+
+.purchase-button {
+    background-color: #42A621;
+    border: 2px solid #EEEEEE;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 0 8px #888888;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 120%;
+    font-weight: bold;
+    margin: 15px auto;
+    padding: 8px 0;
+    text-shadow: 0 1px 1px black;
+    text-transform: uppercase;
+	a link{
+		text-transform: none;
+	}
+	text-align: center;
+    width: 250px;
+	span {
+		display: block;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: normal;
+	}
+}
+
+.what-is-roundtabler {
+	background: none repeat scroll 0 0 #F7FF69;
+    display: block;
+    float: left;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 12px;
+    padding: 11px;
+    text-align: left;
+}
+.date {
+	color: #333333;
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.attendee-wrapper {
+	border-top: 1px solid #BBBBBB;
+	padding-top: 10px;
+	margin-top: 10px;
+	font-size: 12px;
+	font-weight: 400;
+	h1 {
+	font-size: 170%;
+	margin-bottom: 5px;
+	text-align: left;
+	font-weight: bold;
+	}
+}
+	
+.host-widget, .guest-widget {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    float: left;
+    height: 250px;
+	font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+	padding: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    z-index: 1;
+	text-align: left;
+	h1 {
+	font-size: 170%;
+	text-align: center;
+	margin-bottom: 5px;
+	font-weight: bold;
+	}
+	.desc{
+		height: 30px;
+		font-size: 14px;
+		text-align: center;
+	}
+
+	img {
+		box-shadow: 0 0 4px #444444;
+		border: 2px solid #FFFFFF;
+		margin-bottom: 5px;
+	}
+	.interests{
+		text-transform: lowercase;
+	}
+}

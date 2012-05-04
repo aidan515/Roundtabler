@@ -1,11 +1,13 @@
 Roundtabler::Application.routes.draw do
   
+  get "events/show"
+
   get "cities/create"
 
   get "cities/edit"
 
   get "cities/destroy"
-
+  
   resources :venues
   resources :requests
   resources :roundtables#, :shallow => true

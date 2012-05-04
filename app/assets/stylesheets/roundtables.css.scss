@@ -5,11 +5,12 @@ $box-width: 700px;
 
 .list-banner{
 	width: $box-width;
-	padding-right: 10px;
+	padding-right: 0px;
+	padding-left: 10px;
 	height: 40px;
 	background-color: #F5E6F7;
 	overflow: hidden;
-	padding-top: 2px;
+	padding-top: 7px;
 	margin-bottom: 0px;
 	-webkit-border-top-right-radius: 4px;
 	-khtml-border-radius-topright: 4px;	
@@ -22,149 +23,175 @@ $box-width: 700px;
 	border-color: #dfdfdf;
 	border-style: solid;
 	border-width: 1px;
-		
+	border-bottom: 0px;
+	font-size: 1.5em;
+	font-weight: 500;
 }
 
-.box{
-	width: $box-width;
-	height: 122px;
-	color: #000;
-	overflow: hidden;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 10px;
-	padding-left: 5px;
-	margin-bottom: 5px;
-	border-color: #dfdfdf;
+/*=============================================================================
+   New styles for roundtables
+   ========================================================================== */
+
+.entry{
+	width: 700px; height:auto;
+}
+
+.roundtable-entry {float: left; width: 550px; height: 130px; margin-top: 10px; border-color: #dfdfdf; border-style: solid; border-width: 1px;}
+
+.date-wrapper {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
 	border-style: solid;
 	border-width: 1px;
-}
-
-.request-box{
-	width: $box-width;
-	color: #000;
-	overflow: hidden;
-	padding-top: 0px;
-	padding-right: 20px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	margin-bottom: 0px;
 	border-color: #dfdfdf;
-	border-style: solid;
-	border-width: 1px;
-	
-	.request-details{
-		width: 400px;
-		color: #000;
-		overflow: hidden;
-		padding-top:10px;
-		padding-left: 10px;
-		padding-bottom: 10px;
-		margin-top: 10px;
-		font-size: 1em;
-		font-weight: bold;
-	}
-}
-
-h2 {
-	line-height: 2.5em;
-	font-size: 1.2em;
-	font-weight: 700;
-	margin-bottom: 9px;
-}
-
-.image {
-	width: auto;
-	margin-right: 10px;
-	float: left; 
-	position: relative;
+	box-shadow: 0 0 10px #00000;
 	text-align: center;
+	width: 70px;
+	float: left;
+	margin-top: 30px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+.date-wrapper span {
+	color: #666666;
+	display: block;
+	padding:3px;
+	text-align: center;
+}
+
+.month {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 1px solid #CCCCCC;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #777777;
+    padding-top: 5px;
+    text-transform: uppercase;
+	font-size: 80%;
+}
+
+.day-num{
+	font-size: 180%;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.day-text {
+	margin-top: -10px;
+	font-size: 70%;
+}
+
+.day {
+	width:60px;
+	height: 40px;
+	background-color: #ddeeff;
+	text-align: center;
+	font-size: 1.8em;
+	margin-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-khtml-border-radius-bottomright: 3px;	
+	-moz-border-radius-bottomright: 3px;
+	border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-khtml-border-radius-bottomleft: 3px;	
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-color: rgb(0,0,0);
+	border-style: solid;
+	border-width: 1px;
+}
+
+.host-box { 
+	width: 110px;
+	float: left; 
+	margin-right:10px; 
+	padding-top: 5px;
+	padding-left: 5px;
+	border-width: 1px;
+	border-color: #ddeeff;
+	border-style: dashed;
+	text-align: center;
+	font-size: 0.8em;
+	line-height:1em;
 	img {
 		margin-top: 0px;
-		margin-right: 10px;
-		margin-bottom: 0px;
 		margin-left: 0px;
 		border-style: solid;
-		padding: 3px;
+		padding: 2px;
 		border-width: 1px;
 		border-color: #dfdfdf;
 	}
 }
-
 .event-box {
-	width: 400px;
+	float: left;
+	width: 300px;
 	margin-right: 10px;
-	float: left;
-	position: relative;
-}
-	
-.event-banner {
-	width: 400px;
-	float: left;
-	line-height: 1.7em;
-	padding-top: 0px;
-	padding-right: 15px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	font-size: 1.5em;
-	font-weight: 500;
-	margin-top: 0px;
-	margin-bottom: 0px;
-//	border-color: #dfdfdf;
-//	border-style: solid;
-	border-width: 0px;
-	background-color: rgb(255,255,255);
-	}	
 
-.venue-box {
-	width: auto;
-	padding-top: 0px;
-	padding-left: 0px;
+}
+
+.event-topic {
+	width: 300px;
+	line-height: 1.3em;
+	font-size: 1.3em;
+	font-weight: 500;
+	padding-top: 5px;
+}
+
+.event-details {
+	width: 300px;
 	font-size: 1em;
 	font-weight: 400;
-	position:relative;
 	margin-bottom: 10px;
 }
 
-.right-side-box {
-	width: 150px;
-	height: 120px;
-	padding-top: 0px;
-	padding-right: 0px;
-	float:right;
-}
-.button-box {
-	float:right;
-	width: auto;
-	padding-top: 5px;
-	padding-right: 5px;
-	align: right;
-}
-
-.price_box{
-	width: 70px;
-	margin-right: 10px;
-	margin-top: 20px;
-	float:right;
-	font-size:1.5em;
-	font-weight: 300;
-	text-align: right;
-	position: relative;
-}
-
-
 .confirmed-guests {
+	width: 300px;
 	margin-bottom: 0px;
-	margin-top: 15px;
-	float: left;
-	width: 400px;
-	img {
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-left: 0px;
-		padding-top: 15px;
-		border-width: 1px;
-		border-color: #dfdfdf;
-		float:right;
+	margin-top: 15px;	
+ 	img {
+	float:left;
+	margin-right: 1px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 0px;
 	}
 }
+
+.pay-box {
+	float:left;
+	width:auto;
+}
+
+.send-request {
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.send-request button {
+	padding: -2px;
+	font-size: 0.8em;
+	font-weight: 400;
+}
+
+.price {
+	margin-right:5px;
+	margin-top: 10px;
+	padding:5px;
+	text-align:center;
+	font-size: 44px;
+	font-weight: bold;
+	line-height: 44px;
+}
+
+.price-modifier {
+    color: #c0c0c0;
+    font-size: 80%;
+    padding-right: 14px;
+    text-align: center;
+}
+
+  

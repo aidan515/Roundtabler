@@ -20,6 +20,7 @@ class RoundtablesController < ApplicationController
     end
     
     def index
+      # @roundtables = Roundtable.find_all_by_city_id(params[:roundtable][:city_id])
       @roundtables = Roundtable.all
     end
     
