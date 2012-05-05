@@ -14,8 +14,3 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-$(document).ready(function() {	
-	$('.submittable').live('change', function() {
-		$(this).parents('form:first').submit();
-	});
-};)
