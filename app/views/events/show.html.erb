@@ -21,6 +21,8 @@
 			<%= @roundtable.dinner_on.strftime("%A") %>, <%= @roundtable.dinner_on.strftime("%b")%> <%= sprintf '%02d', @roundtable.dinner_on.day%>
 		</span>
 	</div>
+	<div class="meal-pic-wrapper"><%= image_tag @roundtable.venue.venue_image_url(:profile).to_s %></div>
+		
 	<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(@roundtable.id, "True") %>
 	<div class="attendee-wrapper"><h1>People you will meet (<%= @roundtable.attendee_number - confirmed_guests.count %> seats left)
 	</div>

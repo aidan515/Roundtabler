@@ -16,6 +16,19 @@ class VenuesController < ApplicationController
       end
     end
     
+    def edit
+      @venue = Venue.find(params[:id])
+    end
+    
+    def update
+      @venue = Venue.find(params[:id])
+      if @venue.update_attributes(params[:venue])
+        redirect_to @venue, notice: 'Profile was successfully updated.'
+      else
+        render action: "edit"
+      end
+    end
+    
     def show
       @venue = Venue.find(params[:id])
     end

@@ -55,10 +55,18 @@ $box-width: 700px;
 .reservation-box {
 	background: none;
 	border: 1px solid #BBBBBB;
-	height: auto;
-	margin: 0 12px 0 0;
+	height: 235px;
+	margin: 10px 12px 0 0;
 	width: 275px;
 	padding-bottom: 15px;
+	float: left;
+}
+
+.meal-pic-wrapper {
+	border: 1px solid #DDDDDD;
+	padding: 1px;
+	float: left;
+	margin-top: 10px;
 }
 
 .purchase-button {
