@@ -1,64 +1,47 @@
-<%= image_tag @profile.image_url(:thumb).to_s%>
-<p><h2><%= @profile.member.full_name%></h2></p>
-<p>Description: <%= @profile.description %>
-<p>Email: <%= @profile.member.email %></p>
-<p>Birthday: <%= @profile.birthday.day %> / <%= @profile.birthday.month %> / <%= @profile.birthday.year %>
-<p>Business Interests: <%= @profile.interest_1%> , <%= @profile.interest_2%></p>
-<p>Personal Interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2 %></p>
-<p>Employer: <%= @profile.employer%></p> </br>
-<%= link_to "Edit profile", edit_profile_path %></br></br>
-<h3>Hosted roundtables</h3>
-<% @profile.member.roundtables.each do |roundtable| %>
-<div class="box">
-		<span class="event-box">
-			<div class="event-banner">
-			<%= roundtable.topic %> hosted by <%= link_to "#{roundtable.member.full_name}", root_path %>
-			</div>
-			<div class="venue-box">
-			Venue: <i><%= roundtable.venue.name%>, <%= roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
-			Date: <%= roundtable.dinner_on.day%>/<%= roundtable.dinner_on.mon %>/<%= roundtable.dinner_on.year %></br>
-			Price: <span class="btn" data-toggle="button">£20</span>
-			</div>	
-		</span>
-</div>
-<% roundtable.requests.each do |request|%>
-<div class="request-box">
-	<span class= "image">
-	<%= image_tag request.member.profile.image_url(:thumb).to_s%>	
-	</span>
-	<span class="request-details">
-	<%= link_to "#{request.member.full_name}", request.member.profile %> requested a seat at this roundtable.</br></br>
-	<% if request.confirm == "True"%>
-	<b> Request accepted </b>
-	<% else %>
-	<button class="btn" ><%= link_to "Accept this request", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :put %></button>
-	<button class="btn" ><%= link_to "Decline this request", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :delete %></button>
-	</span>
-	<% end %>	
-</div>
-<% end %>
-<% end %>
+<div class="container-inner">
+	<div class= "profile-wrapper">
+		<div class ="img-wrapper">
+			<%= image_tag @profile.image_url(:profile).to_s%>
+		</div>
+		<div class="details-box">
+			<p><h2><%= @profile.member.full_name%></h2></p>
+			<p>Description: <%= @profile.description %>
+			<p>Email: <%= @profile.member.email %></p>
+			<p>Birthday: <%= @profile.birthday.day %> / <%= @profile.birthday.month %> / <%= @profile.birthday.year %>
+			<p>Business Interests: <%= @profile.interest_1%> , <%= @profile.interest_2%></p>
+			<p>Personal Interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2 %></p>
+			<p>Employer: <%= @profile.employer%></p> 
+			<p><%= link_to "Edit profile", edit_profile_path %></p>
+		</div>
+	</div>
+	<div class= "roundtable-type-title">		
+		<h1>Hosted roundtables</h1>
+	</div>	
 
-<% unless @profile.member.requests.empty? %>
-<h3>Requested roundtables</h3>
-<% @profile.member.requests.each do |request| %>
-<div class="box">
-		<span class="event-box">
-			<div class="event-banner">
-			<%= request.roundtable.topic %> hosted by <%= link_to "#{request.roundtable.member.full_name}", root_path %>. Status:
-			<%if request.confirm== "True" %>
-			<i>	Request confirmed</i>
-			<% else %>
-			<i> Request pending</i>
-			<% end %>
+<% @profile.member.roundtables.each do |roundtable| %>
+	<div class="hosted-roundtable-details">
+			<%= link_to "#{roundtable.topic}", events_show_path(:id => roundtable.id), :method => :get %> at 
+			<%= link_to "#{roundtable.venue.name}", roundtable.venue %>
+			<div class="confirmed-guests-wrapper">	
+				Confirmed guests<br>
+				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
+				<% confirmed_guests.each do |request|%>
+				<%= image_tag request.member.profile.image_url(:thumb).to_s%>
+				<% end %>
+			</div><br/><br><br><br><br><br>
+			<div class="pending-guests-wrapper">	
+				Pending guests<br>
+				<% all_guests = Request.find_all_by_roundtable_id(roundtable.id) %>
+				<% all_guests.each do |request|%>
+					<% unless request.confirm == "True" %>
+					<div class="pending-img-wrapper">
+						<%= image_tag request.member.profile.image_url(:thumb).to_s%>
+						<%= button_to "Accept", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :put, :class => 	"btn btn-primary" %>
+						<%= button_to "Reject", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :delete, :class => 	"btn btn-danger" %>
+					</div>
+					<% end %>
+				<% end %>
 			</div>
-			<div class="venue-box">
-			Venue: <i><%= request.roundtable.venue.name%>, <%= request.roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
-			Date: <%= request.roundtable.dinner_on.day%>/<%= request.roundtable.dinner_on.mon %>/<%= request.roundtable.dinner_on.year %></br>
-			Price: <span class="btn" data-toggle="button">£20</span>
-			</div>	
-		</span>
+		</div>
+	<% end %>
 </div>
-		
-		<% end %>
-<% end %>
