@@ -1,6 +1,7 @@
 // Place all the styles related to the roundtables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 $box-width: 635px;
 
 .list-banner{
@@ -37,7 +38,7 @@ $box-width: 635px;
 	width: 700px; height:auto;
 }
 
-.roundtable-entry {float: left; width: 550px; height: 130px; margin-top: 10px; border-color: #dfdfdf; border-style: solid; border-width: 1px;}
+.roundtable-entry {float: left; width: 600px; height: 130px; margin-top: 10px; border-color: #dfdfdf; border-style: solid; border-width: 1px;}
 
 .date-wrapper {
 	background: none repeat scroll 0 0 #FFFFFF;
@@ -52,7 +53,6 @@ $box-width: 635px;
 	margin-top: 30px;
 	margin-right: 10px;
 	margin-bottom: 20px;
-	margin-left: 10px;
 }
 
 .date-wrapper span {
@@ -80,8 +80,16 @@ $box-width: 635px;
 }
 
 .day-text {
-	margin-top: -10px;
+	margin-top: -5px;
 	font-size: 70%;
+
+}
+
+.time-text {
+	margin-top: -5px;
+	font-size: 90%;
+	
+
 }
 
 .day {
@@ -105,6 +113,18 @@ $box-width: 635px;
 	border-style: solid;
 	border-width: 1px;
 }
+
+//.time-box {
+//    background: #000000;
+//    border-radius: 3px 3px 3px 3px;
+//    box-shadow: 0 0 5px #000000;
+//    opacity: 0.8;
+//    padding: 2px 2px;
+//    text-align: center;
+//	margin: 2px;
+//    width: 60px;
+//	height: 20px;
+//}
 
 .host-box { 
 	width: 110px;

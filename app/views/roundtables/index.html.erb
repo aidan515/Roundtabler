@@ -1,5 +1,7 @@
 <div class="list-banner">
+	<h1 class="font-face">
 	Roundtables happening in London
+	</div>
 </div>
 <% @roundtables.each do |roundtable| %>
 <div class="entry">
@@ -7,6 +9,8 @@
 		<span class="month"><%= roundtable.dinner_on.strftime("%b")%></span>
 		<span class="day-num"><%= sprintf '%02d', roundtable.dinner_on.day%></span>	
 		<span class="day-text"><%= roundtable.dinner_on.strftime("%A") %></span>
+		<span class="time-text">
+			<%= roundtable.kick_off.strftime("%I")%>:<%= roundtable.kick_off.strftime("%M")%><%= roundtable.kick_off.strftime("%p")%>
 	</div>
 	<div class="roundtable-entry">
 		<div class="host-box">

@@ -9,13 +9,15 @@
 <body>
 <%= render "layouts/header" %>
 <div class="container">
+	<div class="row">
 	<% flash.each do |name, msg| %>
 		<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 			<a class="close" data-dismiss="alert">x</a>
 			<%= msg %>
 		</div>
 		<% end %>
-<%= yield %>
+		<div class="span12"><%= yield %></div>
+	</div>	
 </div>
 
 </body>

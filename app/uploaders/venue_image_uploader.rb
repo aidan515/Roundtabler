@@ -41,7 +41,7 @@ class VenueImageUploader < CarrierWave::Uploader::Base
   end
   
   version :profile do
-    process :resize_to_fill => [385,250]
+    process :resize_to_fill => [335,250]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

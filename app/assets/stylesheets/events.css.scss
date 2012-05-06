@@ -6,8 +6,8 @@ $box-width: 700px;
 
 .container-inner{
 	width: $box-width;
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 0px;
+	padding-left: 0px;
 	
 	overflow: hidden;
 	padding-top: 7px;
@@ -132,14 +132,14 @@ $box-width: 700px;
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #DDDDDD;
     float: left;
-    height: 250px;
+    height: 240px;
 	font-size: 12px;
     margin-bottom: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
 	padding: 5px;
     overflow: hidden;
     position: relative;
-    width: 200px;
+    width: 199px;
     z-index: 1;
 	text-align: left;
 	h1 {
