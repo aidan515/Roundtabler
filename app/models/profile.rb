@@ -8,7 +8,7 @@ validates_presence_of :hobby_1
 validates_presence_of :hobby_2
 validates_presence_of :birthday
 
-belongs_to :member
+belongs_to :user
 
 mount_uploader :image, ImageUploader
 end

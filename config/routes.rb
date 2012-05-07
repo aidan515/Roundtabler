@@ -1,23 +1,16 @@
-Roundtabler::Application.routes.draw do
-  
-  get "events/show"
-
-  get "cities/create"
-
-  get "cities/edit"
-
-  get "cities/destroy"
-  
+Roundtabler::Application.routes.draw do 
   resources :venues
   resources :requests
   resources :roundtables#, :shallow => true
   #resources :profiles
   resources :members 
+  resources :users
   resources :profiles
   resources :sessions
   resources :password_resets
   
-  get 'signup', to: 'members#new', as: 'signup'
+  get 'venue_login', to: 'sessions#new', as: 'venue_login'
+  get 'signup', to: 'users#new', as: 'signup'
   get 'venue_signup', to: 'venues#new', as: 'venue_signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

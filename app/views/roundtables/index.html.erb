@@ -14,8 +14,8 @@
 	</div>
 	<div class="roundtable-entry">
 		<div class="host-box">
-			<%= image_tag roundtable.member.profile.image_url(:thumb).to_s%> 
-			<%= link_to "#{roundtable.member.full_name}", roundtable.member.profile %>		
+			<%= image_tag roundtable.user.profile.image_url(:thumb).to_s%> 
+			<%= link_to "#{roundtable.user.full_name}", roundtable.user.profile %>		
 		</div>
 		<div class="event-box">
 			<div class="event-topic">
@@ -28,7 +28,7 @@
 				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
 				Who else is coming?</br>
 				<% confirmed_guests.each do |request|%>
-				<%= image_tag request.member.profile.image_url(:micro).to_s%>
+				<%= image_tag request.user.profile.image_url(:micro).to_s%>
 				<% end %>
 			</div>
 		</div>

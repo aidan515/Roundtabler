@@ -26,17 +26,17 @@
 	<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(@roundtable.id, "True") %>
 	<div class="attendee-wrapper"><h1>People you will meet (<%= @roundtable.attendee_number - confirmed_guests.count %> seats left)
 	</div>
-	<div class='host-widget'><h1><%= @roundtable.member.full_name%></h1>
-		<div class="desc"><%= @roundtable.member.profile.description %></div>
-	<%= image_tag @roundtable.member.profile.image_url(:thumb).to_s%>
-	<div class="interests"> <b>Interests:</b> <%= @roundtable.member.profile.interest_1%>, <%= @roundtable.member.profile.interest_2%>, <%= @roundtable.member.profile.hobby_1 %>, <%= @roundtable.member.profile.hobby_2 %>
+	<div class='host-widget'><h1><%= @roundtable.user.full_name%></h1>
+		<div class="desc"><%= @roundtable.user.profile.description %></div>
+	<%= image_tag @roundtable.user.profile.image_url(:thumb).to_s%>
+	<div class="interests"> <b>Interests:</b> <%= @roundtable.user.profile.interest_1%>, <%= @roundtable.user.profile.interest_2%>, <%= @roundtable.user.profile.hobby_1 %>, <%= @roundtable.user.profile.hobby_2 %>
 	</div>
 	</div>
 	<% confirmed_guests.each do |guest| %>
-	<div class ='guest-widget'><h1><%= guest.member.full_name %></h1>
-		<div class='desc'><%= guest.member.profile.description %></div>
-		<%= image_tag guest.member.profile.image_url(:thumb).to_s %>
-		<div class="interests"> <b>Interests:</b> <%= guest.member.profile.interest_1%>, <%= guest.member.profile.interest_2%>, <%= guest.member.profile.hobby_1 %>, <%= guest.member.profile.hobby_2 %>
+	<div class ='guest-widget'><h1><%= guest.user.full_name %></h1>
+		<div class='desc'><%= guest.user.profile.description %></div>
+		<%= image_tag guest.user.profile.image_url(:thumb).to_s %>
+		<div class="interests"> <b>Interests:</b> <%= guest.user.profile.interest_1%>, <%= guest.user.profile.interest_2%>, <%= guest.user.profile.hobby_1 %>, <%= guest.user.profile.hobby_2 %>
 		</div>	
 	</div>	
 	<% end %>

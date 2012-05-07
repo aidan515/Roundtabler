@@ -1,0 +1,13 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+<div class = 'form-inputs'>
+
+<%= f.input :full_name %>
+<%= f.input :email %>
+<%= f.input :password %>
+<%= f.input :password_confirmation %>
+<%= f.association :city, :default => false %>
+</div>
+<div class= 'form-actions'>
+<%= f.button :submit, "Sign up" %>
+</div>
+<% end %>

@@ -4,9 +4,9 @@
 			<%= image_tag @profile.image_url(:profile).to_s%>
 		</div>
 		<div class="details-box">
-			<p><h2><%= @profile.member.full_name%></h2></p>
+			<p><h2><%= @profile.user.full_name%></h2></p>
 			<p>Description: <%= @profile.description %>
-			<p>Email: <%= @profile.member.email %></p>
+			<p>Email: <%= @profile.user.email %></p>
 			<p>Birthday: <%= @profile.birthday.day %> / <%= @profile.birthday.month %> / <%= @profile.birthday.year %>
 			<p>Business Interests: <%= @profile.interest_1%> , <%= @profile.interest_2%></p>
 			<p>Personal Interests: <%= @profile.hobby_1 %>, <%= @profile.hobby_2 %></p>
@@ -18,7 +18,7 @@
 		<h1>Hosted roundtables</h1>
 	</div>	
 
-<% @profile.member.roundtables.each do |roundtable| %>
+<% @profile.user.roundtables.each do |roundtable| %>
 	<div class="hosted-roundtable-details">
 			<%= link_to "#{roundtable.topic}", events_show_path(:id => roundtable.id), :method => :get %> at 
 			<%= link_to "#{roundtable.venue.name}", roundtable.venue %>
@@ -26,7 +26,7 @@
 				Confirmed guests<br>
 				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
 				<% confirmed_guests.each do |request|%>
-				<%= image_tag request.member.profile.image_url(:thumb).to_s%>
+				<%= image_tag request.user.profile.image_url(:thumb).to_s%>
 				<% end %>
 			</div><br/><br><br><br><br><br>
 			<div class="pending-guests-wrapper">	
@@ -35,9 +35,9 @@
 				<% all_guests.each do |request|%>
 					<% unless request.confirm == "True" %>
 					<div class="pending-img-wrapper">
-						<%= image_tag request.member.profile.image_url(:thumb).to_s%>
-						<%= button_to "Accept", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :put, :class => 	"btn btn-primary" %>
-						<%= button_to "Reject", request_path(:roundtable_id => roundtable.id, :member_id => request.member.id), :method => :delete, :class => 	"btn btn-danger" %>
+						<%= image_tag request.user.profile.image_url(:thumb).to_s%>
+						<%= button_to "Accept", request_path(:roundtable_id => roundtable.id, :user_id => request.user.id), :method => :put, :class => 	"btn btn-primary" %>
+						<%= button_to "Reject", request_path(:roundtable_id => roundtable.id, :user_id => request.user.id), :method => :delete, :class => 	"btn btn-danger" %>
 					</div>
 					<% end %>
 				<% end %>

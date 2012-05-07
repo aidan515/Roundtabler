@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430141224) do
+ActiveRecord::Schema.define(:version => 20120507201822) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120430141224) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.integer  "city_id"
+    t.string   "switch"
   end
 
   create_table "profiles", :force => true do |t|
@@ -41,13 +42,13 @@ ActiveRecord::Schema.define(:version => 20120430141224) do
     t.date     "birthday"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "member_id"
+    t.integer  "user_id"
     t.string   "image"
   end
 
   create_table "requests", :force => true do |t|
     t.integer  "roundtable_id"
-    t.integer  "member_id"
+    t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "confirm"
@@ -60,10 +61,15 @@ ActiveRecord::Schema.define(:version => 20120430141224) do
     t.time     "kick_off"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "member_id"
+    t.integer  "user_id"
     t.integer  "sample"
     t.integer  "venue_id"
     t.integer  "city_id"
+  end
+
+  create_table "users", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "venues", :force => true do |t|
@@ -74,10 +80,15 @@ ActiveRecord::Schema.define(:version => 20120430141224) do
     t.string   "post_code"
     t.string   "email"
     t.string   "phone_number"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "venue_image"
     t.integer  "city_id"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.string   "password_reset_sent_at"
+    t.string   "datetime"
+    t.string   "password_digest"
   end
 
 end

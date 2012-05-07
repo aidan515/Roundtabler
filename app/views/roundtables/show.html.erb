@@ -1,19 +1,45 @@
-<div class="box">
-	<span class= "image">
-	<%= image_tag @roundtable.member.profile.image_url(:thumb).to_s%>	
-	</span>
-		<span class="event-box">
-			<div class="event-banner">
-			<%= @roundtable.topic %> hosted by <%= link_to "#{@roundtable.member.full_name}", root_path %>
-			</div>
-			<div class="venue-box">
-			Venue: <i><%= @roundtable.venue.name%>, <%= @roundtable.venue.address_1 %></i> <%= link_to "Google Maps", root_path%></br>
-			Date: <%= @roundtable.dinner_on.day%>/<%= @roundtable.dinner_on.mon %>/<%= @roundtable.dinner_on.year %></br>
-			Price: <span class="btn" data-toggle="button">£20</span>
-			</div>	
+<div class="container-inner">
+	<div class="title">
+		<h1><%= @roundtable.topic %></h1>
+		At <%= @roundtable.venue.name%>, <%= @roundtable.venue.address_1%>, <%= @roundtable.city.name %> <%=@roundtable.venue.post_code%> 
+	</div>
+	<div class="desc">
+		This is the description. I need to put a model field in for description of the roundtable. It will have a text type.
+		Nothing to worry about for now though...
+	</div>
+	<div class="reservation-box">
+		<div class= "purchase-button">
+		<%= link_to "Request a seat", roundtable_path %>
+		<span>£20 for your seat</span>
+		</div>
+		<div class="what-is-roundtabler">
+			<b>What am I paying for?</b>
+			Roundtabler is a social dining experience that brings people who share similar interests together, over great food.
+			</br>
+		</div>
+		<span class="date">
+			<%= @roundtable.dinner_on.strftime("%A") %>, <%= @roundtable.dinner_on.strftime("%b")%> <%= sprintf '%02d', @roundtable.dinner_on.day%>
 		</span>
-		<span class="button-box">
-			<button class="btn"><%= link_to "Request a seat", requests_path(:roundtable_id => params[:roundtable_id]), :method => :post%></button>
-		</span>
-
-</div>
+	</div>
+	<div class="meal-pic-wrapper"><%= image_tag @roundtable.venue.venue_image_url(:profile).to_s %></div>
+		
+	<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(@roundtable.id, "True") %>
+	<div class="attendee-wrapper"><h1>People you will meet (<%= @roundtable.attendee_number - confirmed_guests.count %> seats left)
+	</div>
+	<div class='host-widget'><h1><%= @roundtable.user.full_name%></h1>
+		<div class="desc"><%= @roundtable.user.profile.description %></div>
+	<%= image_tag @roundtable.user.profile.image_url(:thumb).to_s%>
+	<div class="interests"> <b>Interests:</b> <%= @roundtable.user.profile.interest_1%>, <%= @roundtable.user.profile.interest_2%>, <%= @roundtable.user.profile.hobby_1 %>, <%= @roundtable.user.profile.hobby_2 %>
+	</div>
+	</div>
+	<% confirmed_guests.each do |guest| %>
+	<div class ='guest-widget'><h1><%= guest.user.full_name %></h1>
+		<div class='desc'><%= guest.user.profile.description %></div>
+		<%= image_tag guest.user.profile.image_url(:thumb).to_s %>
+		<div class="interests"> <b>Interests:</b> <%= guest.user.profile.interest_1%>, <%= guest.user.profile.interest_2%>, <%= guest.user.profile.hobby_1 %>, <%= guest.user.profile.hobby_2 %>
+		</div>	
+	</div>	
+	<% end %>
+		
+	
+	

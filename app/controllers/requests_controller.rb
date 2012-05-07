@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
   
   def create
        if current_member #&& !host_member
-        @request = current_member.requests.build(:roundtable_id => params[:roundtable_id])
+        @request = current_user.requests.build(:roundtable_id => params[:roundtable_id])
         if @request.save
           @request.send_seat_request
           # MemberMailer.seat_request(@request.member, @request.roundtable.member).deliver
@@ -30,18 +30,18 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request = Request.find_by_roundtable_id_and_member_id(params[:roundtable_id],params[:member_id])
+    @request = Request.find_by_roundtable_id_and_user_id(params[:roundtable_id],params[:user_id])
     @request.confirm = "True"
     if @request.update_attributes(params[:request])
       redirect_to root_url, notice: 'Request was successfully confirmed.'
     else
-      redirect_to @request.roundtable.member.profile, alert: "Failed to confirm request."
+      redirect_to @request.roundtable.user.profile, alert: "Failed to confirm request."
     end
   end
   
   def destroy
-    @request = Request.find_by_roundtable_id_and_member_id(params[:roundtable_id], params[:member_id])
+    @request = Request.find_by_roundtable_id_and_user_id(params[:roundtable_id], params[:user_id])
     @request.destroy
-    redirect_to @request.roundtable.member.profile
+    redirect_to @request.roundtable.user.profile
   end
 end

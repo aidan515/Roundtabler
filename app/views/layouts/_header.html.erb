@@ -18,14 +18,15 @@
         <a class="brand" href="/">Roundtabler</a>
         <div class="nav-collapse">
           <ul class="nav">
-			<% if current_member %>
+			<% if current_user %>
 			<li><%= link_to "Logout", logout_path %></li>
 			<li><%= link_to "Create roundtable", new_roundtable_path %></li>
-			<li><%= link_to "#{current_member.full_name}", current_member.profile %>
+			<li><%= link_to "#{current_user.full_name}", current_user.profile %>
 			<% else %>
 			<li><%= link_to "Login", login_path %></li>
             <li><%= link_to "Signup", signup_path %></li>
-			<li><%= link_to "Venue signup", venue_signup_path %>
+			<li><%= link_to "Venue signup", venue_signup_path %></li>
+			<li><%= link_to "Venue login", venue_login_path %></li>
 			<% end %>
 			
 			

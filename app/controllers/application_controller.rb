@@ -11,14 +11,23 @@ class ApplicationController < ActionController::Base
     member == current_member
   end
   
+  def current_user
+    @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if (cookies[:auth_token])
+  end
+  helper_method :current_user
+  
+  def current_user?(user)
+    user == current_user
+  end
+  
   def authorize
     redirect_to login_url, alert: "Please sign in to view this page" if current_member.nil?
   end 
   
   def correct_member
     @profile = Profile.find(params[:id])
-    @member = @profile.member
-    redirect_to root_path, alert: "You do not have access to this page" unless current_member?(@member)
+    @user = @profile.user
+    redirect_to root_path, alert: "You do not have access to this page" unless current_user?(@user)
   end
   helper_method :correct_member
   
