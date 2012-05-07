@@ -8,8 +8,6 @@
 <%= f.input :hobby_2, :label => "Personal interests" %>
 <%= f.input :employer %>
 <%= f.input :birthday, :label => "Date of Birth", :as => :date, :start_day => Date.today.day, :start_month => Date.today.month, :start_year => Date.today.year - 40, :end_year => Date.today.year - 18, :order => [:day, :month, :year] %>
-
-
 </div>
 <div class= 'form-actions'>
 <% if request.path == "/profiles/#{@profile.id}/edit" %>	
