@@ -11,12 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507201822) do
+ActiveRecord::Schema.define(:version => 20120508075749) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "descriptions", :force => true do |t|
+    t.string   "r_type"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "post_code"
+    t.string   "phone_number"
+    t.string   "venue_image"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "venue_id"
   end
 
   create_table "members", :force => true do |t|
@@ -29,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20120507201822) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.integer  "city_id"
-    t.string   "switch"
+    t.string   "type"
   end
 
   create_table "profiles", :force => true do |t|
@@ -70,25 +82,6 @@ ActiveRecord::Schema.define(:version => 20120507201822) do
   create_table "users", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "venues", :force => true do |t|
-    t.string   "name"
-    t.string   "r_type"
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "post_code"
-    t.string   "email"
-    t.string   "phone_number"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.string   "venue_image"
-    t.integer  "city_id"
-    t.string   "auth_token"
-    t.string   "password_reset_token"
-    t.string   "password_reset_sent_at"
-    t.string   "datetime"
-    t.string   "password_digest"
   end
 
 end

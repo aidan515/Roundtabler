@@ -10,7 +10,8 @@ class VenuesController < ApplicationController
     def create
       @venue = Venue.new(params[:venue])
       if @venue.save
-        redirect_to @venue, notice: "Thank you for signing up as a roundtable venue!"
+        cookies[:auth_token] = @venue.auth_token
+        redirect_to new_description_path, notice: "Thank you for signing up as a roundtable venue!"
       else
         render "new"
       end

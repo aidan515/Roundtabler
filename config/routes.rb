@@ -1,4 +1,14 @@
 Roundtabler::Application.routes.draw do 
+  get "descriptions/new"
+
+  get "descriptions/edit"
+
+  get "descriptions/update"
+
+  get "descriptions/create"
+
+  get "descriptions/show"
+
   resources :venues
   resources :requests
   resources :roundtables#, :shallow => true
@@ -8,6 +18,7 @@ Roundtabler::Application.routes.draw do
   resources :profiles
   resources :sessions
   resources :password_resets
+  resources :descriptions
   
   get 'venue_login', to: 'sessions#new', as: 'venue_login'
   get 'signup', to: 'users#new', as: 'signup'

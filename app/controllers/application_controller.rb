@@ -11,11 +11,6 @@ class ApplicationController < ActionController::Base
     member == current_member
   end
   
-  def current_user
-    @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if (cookies[:auth_token])
-  end
-  helper_method :current_user
-  
   def current_user?(user)
     user == current_user
   end
@@ -26,10 +21,17 @@ class ApplicationController < ActionController::Base
   
   def correct_member
     @profile = Profile.find(params[:id])
-    @user = @profile.user
-    redirect_to root_path, alert: "You do not have access to this page" unless current_user?(@user)
+    @member = @profile.user
+    redirect_to root_path, alert: "You do not have access to this page" unless current_member?(@member)
   end
   helper_method :correct_member
+  
+  def correct_venue
+    @description = Description.find(params[:id])
+    @venue = @description.venue
+    redirect_to root_path, alert: "You do not have access to this page" unless current_member?(@venue)
+  end
+  helper_method :correct_venue
   
   # def confirmed_guests
   #   @confirmed_guests ||= Request.find_all_by_roundtable_id_and_confirm(params[:roundtable_id], "True") 

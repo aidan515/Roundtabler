@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
   end
   
   def create
-    @profile = current_user.build_profile(params[:profile])
+    @profile = current_member.build_profile(params[:profile])
     if @profile.save
       redirect_to @profile, notice: "Thank you for completing your profile!"
     else

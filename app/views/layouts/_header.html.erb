@@ -18,18 +18,19 @@
         <a class="brand" href="/">Roundtabler</a>
         <div class="nav-collapse">
           <ul class="nav">
-			<% if current_user %>
+			<% if current_member && current_member.type == "User" %>
 			<li><%= link_to "Logout", logout_path %></li>
 			<li><%= link_to "Create roundtable", new_roundtable_path %></li>
-			<li><%= link_to "#{current_user.full_name}", current_user.profile %>
+			<li><%= link_to "#{current_member.full_name}", current_member.profile %>
+			<% elsif current_member && current_member.type == "Venue" %>
+			<li><%= link_to "Logout", logout_path %></li>
+			<li><%= link_to "#{current_member.full_name}", current_member.description %>		
 			<% else %>
 			<li><%= link_to "Login", login_path %></li>
             <li><%= link_to "Signup", signup_path %></li>
 			<li><%= link_to "Venue signup", venue_signup_path %></li>
 			<li><%= link_to "Venue login", venue_login_path %></li>
 			<% end %>
-			
-			
           </ul>
         </div>
       </div>
