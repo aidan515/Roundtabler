@@ -30,5 +30,6 @@ class DescriptionsController < ApplicationController
 
   def show
     @description = Description.find(params[:id])
+    @json = @description.to_gmaps4rails
   end
 end

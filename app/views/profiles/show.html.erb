@@ -14,34 +14,36 @@
 			<p><%= link_to "Edit profile", edit_profile_path %></p>
 		</div>
 	</div>
+	<% unless @profile.user.roundtables.empty? %>
 	<div class= "roundtable-type-title">		
 		<h1>Hosted roundtables</h1>
 	</div>	
 
-<% @profile.user.roundtables.each do |roundtable| %>
-	<div class="hosted-roundtable-details">
-			<%= link_to "#{roundtable.topic}", events_show_path(:id => roundtable.id), :method => :get %> at 
-			<%= link_to "#{roundtable.venue.name}", roundtable.venue %>
-			<div class="confirmed-guests-wrapper">	
-				Confirmed guests<br>
-				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
-				<% confirmed_guests.each do |request|%>
-				<%= image_tag request.user.profile.image_url(:thumb).to_s%>
-				<% end %>
-			</div><br/><br><br><br><br><br>
-			<div class="pending-guests-wrapper">	
-				Pending guests<br>
-				<% all_guests = Request.find_all_by_roundtable_id(roundtable.id) %>
-				<% all_guests.each do |request|%>
-					<% unless request.confirm == "True" %>
-					<div class="pending-img-wrapper">
-						<%= image_tag request.user.profile.image_url(:thumb).to_s%>
-						<%= button_to "Accept", request_path(:roundtable_id => roundtable.id, :user_id => request.user.id), :method => :put, :class => 	"btn btn-primary" %>
-						<%= button_to "Reject", request_path(:roundtable_id => roundtable.id, :user_id => request.user.id), :method => :delete, :class => 	"btn btn-danger" %>
-					</div>
+		<% @profile.user.roundtables.each do |roundtable| %>
+		<div class="hosted-roundtable-details">
+				<%= link_to "#{roundtable.topic}", roundtable_path(:id => roundtable.id), :method => :get %> at 
+				<%= link_to "#{roundtable.venue.full_name}", roundtable.venue %>
+				<div class="confirmed-guests-wrapper">	
+					Confirmed guests<br>
+					<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
+					<% confirmed_guests.each do |request|%>
+					<%= image_tag request.user.profile.image_url(:thumb).to_s%>
 					<% end %>
-				<% end %>
+				</div><br/><br><br><br><br><br>
+				<div class="pending-guests-wrapper">	
+					Pending guests<br>
+					<% all_guests = Request.find_all_by_roundtable_id(roundtable.id) %>
+					<% all_guests.each do |request|%>
+						<% unless request.confirm == "True" %>
+						<div class="pending-img-wrapper">
+							<%= image_tag request.user.profile.image_url(:thumb).to_s%>
+							<%= button_to "Accept", request_path(:roundtable_id => roundtable.id, :user_id => request.user.id), :method => :put, :class => 	"btn btn-primary" %>
+							<%= button_to "Reject", request_path(:roundtable_id => roundtable.id, :user_id => request.user.id), :method => :delete, :class => 	"btn btn-danger" %>
+						</div>
+						<% end %>
+					<% end %>
+				</div>
 			</div>
-		</div>
+		<% end %>
 	<% end %>
 </div>

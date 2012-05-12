@@ -19,10 +19,10 @@
 		</div>
 		<div class="event-box">
 			<div class="event-topic">
-				<%= link_to "#{roundtable.topic}", events_show_path(:id => roundtable.id), :method => :get %>
+				<%= link_to "#{roundtable.topic}", roundtable_path(:id => roundtable.id), :method => :get %>
 			</div>
 			<div class='event-details'>
-				<%= roundtable.venue.name%>, <%= roundtable.venue.address_1 %></br>
+				<%= roundtable.venue.full_name%>, <%= roundtable.venue.description.address_1 %></br>
 			</div>
 			<div class="confirmed-guests">	
 				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>

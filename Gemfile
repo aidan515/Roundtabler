@@ -6,6 +6,7 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'gmaps4rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'twitter-bootstrap-rails'

@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
     member == current_member
   end
   
-  def current_user?(user)
-    user == current_user
-  end
-  
   def authorize
     redirect_to login_url, alert: "Please sign in to view this page" if current_member.nil?
   end 

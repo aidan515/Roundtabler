@@ -7,7 +7,7 @@ class RoundtablesController < ApplicationController
     end
 
     def create
-      @roundtable = current_user.roundtables.build(params[:roundtable])
+      @roundtable = current_member.roundtables.build(params[:roundtable])
       if @roundtable.save
         redirect_to @roundtable, notice: "Thank you for creating a roundtable!"
       else
