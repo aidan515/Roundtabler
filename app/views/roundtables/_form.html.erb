@@ -1,6 +1,7 @@
 <%= simple_form_for @roundtable, :html => { :class => 'form-horizontal' } do |f| %>
 <div class = 'form-inputs'>
 <%= f.input :topic, :label => "Topic" %>
+<%= f.input :summary, :label => "Event description", :input_html => { :rows => 2} %>
 <%= f.input :attendee_number, :as => :radio_buttons, :collection => 4..8 %>
 <%= f.input :kick_off, :label => "Time", :as => :time, :minute_step => 5 %></div>
 <%= f.association :city, :default => false %>

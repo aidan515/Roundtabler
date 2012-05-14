@@ -10,10 +10,5 @@ validates_presence_of :venue_image
 belongs_to :venue
 
 mount_uploader :venue_image, VenueImageUploader
-acts_as_gmappable
-
-  def gmaps4rails_address
-    address = "#{self.address_1}, #{self.address_2}, #{self.venue.city} #{self.post_code}"
-  end
 
 end

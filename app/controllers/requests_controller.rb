@@ -9,10 +9,9 @@ class RequestsController < ApplicationController
   end
   
   def create
-       if current_member #&& !host_member
-        @request = current_user.requests.build(:roundtable_id => params[:roundtable_id])
+       if current_member 
+        @request = current_member.requests.build(:roundtable_id => params[:roundtable_id])
         if @request.save
-          @request.send_seat_request
           # MemberMailer.seat_request(@request.member, @request.roundtable.member).deliver
           redirect_to root_url, notice: "Thank you for your request, the host has been notified."
         else

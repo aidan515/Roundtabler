@@ -1,16 +1,13 @@
 <div class="container-inner">
-	<div class= "profile-wrapper">
-		<div class ="venue_img-wrapper">
-			<%= image_tag @description.venue_image_url(:profile).to_s%>
-		</div>
 		<div class="details-box">
-			<p><h2><%= @description.venue.full_name%></h2></p>
+			<p><h3><%= @description.venue.full_name%></h2></p>
 			<p>Description: <%= @description.r_type %>
 			<p>Email: <%= @description.venue.email %></p>
 			<p>Address: <%= @description.address_1%>, <%= @description.venue.city.name %> <%= @description.post_code %></p>
 			<p>Phone number: <%= @description.phone_number%></p> 
 			<p><%= link_to "Edit profile", edit_description_path %></p>
 		</div>
-	</div>
-	<%= gmaps4rails(@json) %>
+		<div class ="venue_img-wrapper">
+			<%= image_tag @description.venue_image_url(:profile).to_s%>
+		</div>
 </div>

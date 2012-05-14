@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     member == current_member
   end
   
+  def current_user
+    @request = Request.find(params[:roundtable_id])
+    @current_user = @request.user
+  end
+  helper_method :current_user
+  
   def authorize
     redirect_to login_url, alert: "Please sign in to view this page" if current_member.nil?
   end 

@@ -1,5 +1,5 @@
 class DescriptionsController < ApplicationController
-  before_filter :authorize, :only => [:new, :show]
+  before_filter :authorize, :only => [:new]
   before_filter :correct_venue, :only => [:edit, :update]
   
   def new
@@ -24,12 +24,12 @@ class DescriptionsController < ApplicationController
     if @description.save
       redirect_to @description, notice: "Thank you for completing your profile!"
     else
-      render "new"
+      render "new", notice: "There has been an error. Please submit again."
     end
   end
 
   def show
     @description = Description.find(params[:id])
-    @json = @description.to_gmaps4rails
+    # @json = @description.to_gmaps4rails
   end
 end

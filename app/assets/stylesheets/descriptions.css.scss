@@ -4,15 +4,12 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$box-width: 650px;
 
 .container-inner{
-	width: $box-width;
-	padding-right: 10px;
-	padding-left: 10px;
-	
+	padding-right: 0px;
+	padding-left: 0px;
 	overflow: hidden;
-	padding-top: 7px;
+	padding-top: 4px;
 	margin-bottom: 0px;
 	-webkit-border-radius: 4px;
 	-khtml-border-radius: 4px;	
@@ -33,16 +30,10 @@ $box-width: 650px;
    New styles for roundtables
    ========================================================================== */
 
-.profile-wrapper {
-	border-bottom: solid;
-	border-width: 1px;
-	border-color: #dfdfdf;
-	height: 280px;
-}
-
 .venue_img-wrapper {
 	float:left;
 	img {
+		float:left;
 		box-shadow: 0 0 8px #444444;
 		border: 2px solid #FFFFFF;
 		margin-bottom: 5px;
@@ -51,8 +42,8 @@ $box-width: 650px;
 
 .details-box {
 	float:left;
-	border: 2px solid #FFFFFF;
-	margin-left: 20px;
+	white-space:normal;
+	width: 275px;
 }
 
 .roundtable-type-title {
@@ -71,30 +62,3 @@ $box-width: 650px;
 	text-align: left;
 }	
 
-.confirmed-guests-wrapper {
-	font-size: 14px;
-	text-align: left;
-	margin: 5px;
-	img {
-		margin-right: 2px;
-		float: left;
-		padding: 1px;
-		border: 1px solid #FFFFFF;
-	}	
-}
-
-.pending-guests-wrapper {
-		width:500px;
-		font-size: 14px;
-		text-align: left;
-		margin: 5px;
-		.pending-img-wrapper {
-			width:110px;
-			img {
-				margin-right: 5px;
-				float: left;
-				padding: 1px;
-				border: 1px solid #FFFFFF;
-			}
-		}	
-}

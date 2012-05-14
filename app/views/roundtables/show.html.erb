@@ -4,12 +4,11 @@
 		At <%= @roundtable.venue.full_name%>, <%= @roundtable.venue.description.address_1%>, <%= @roundtable.city.name %> <%=@roundtable.venue.description.post_code%> 
 	</div>
 	<div class="desc">
-		This is the description. I need to put a model field in for description of the roundtable. It will have a text type.
-		Nothing to worry about for now though...
+		<%= @roundtable.summary %>
 	</div>
 	<div class="reservation-box">
 		<div class= "purchase-button">
-		<%= link_to "Request a seat", roundtable_path %>
+		<%= link_to "Request a seat", requests_path(:roundtable_id => @roundtable.id), :method => :post %>
 		<span>£20 for your seat</span>
 		</div>
 		<div class="what-is-roundtabler">

@@ -6,13 +6,8 @@
 <%= f.input :address_2, :label => "Address" %>
 <%= f.input :post_code, :label => "Postcode" %>
 <%= f.input :phone_number, :label => "Phone number" %>
-
 </div>
 <div class= 'form-actions'>
-<% if request.path == "/descriptions/#{@description.id}/edit" %>	
-<%= f.button :submit, "Update profile" %>
-<% else %>
 <%= f.button :submit, "Create profile" %>
-<% end %>
 </div>
 <% end %>

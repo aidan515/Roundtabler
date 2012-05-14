@@ -1,7 +1,8 @@
 <div class="list-banner">
 	<h1 class="font-face">
 	Roundtables happening in London
-	</div>
+	</h1>
+</div>
 </div>
 <% @roundtables.each do |roundtable| %>
 <div class="entry">
@@ -22,7 +23,7 @@
 				<%= link_to "#{roundtable.topic}", roundtable_path(:id => roundtable.id), :method => :get %>
 			</div>
 			<div class='event-details'>
-				<%= roundtable.venue.full_name%>, <%= roundtable.venue.description.address_1 %></br>
+				<%= link_to "#{roundtable.venue.full_name}",roundtable.venue.description %>, <%= roundtable.venue.description.address_1 %></br>
 			</div>
 			<div class="confirmed-guests">	
 				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
