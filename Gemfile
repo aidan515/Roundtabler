@@ -51,3 +51,7 @@ group :test do
 	gem "launchy"
 end
 
+
+gem "taps", :require => false
+
+
