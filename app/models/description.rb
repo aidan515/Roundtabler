@@ -9,6 +9,13 @@ validates_presence_of :phone_number
 validates_presence_of :venue_image
 belongs_to :venue
 
+geocoded_by :full_address
+after_validation :geocode
+
 mount_uploader :venue_image, VenueImageUploader
+
+def full_address
+  @full_address = "#{self.address_1}, #{self.venue.city} #{self.post_code}"
+end
 
 end

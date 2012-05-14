@@ -9,16 +9,13 @@ class RequestsController < ApplicationController
   end
   
   def create
-       if current_member 
-        @request = current_member.requests.build(:roundtable_id => params[:roundtable_id])
-        if @request.save
-          # MemberMailer.seat_request(@request.member, @request.roundtable.member).deliver
-          redirect_to root_url, notice: "Thank you for your request, the host has been notified."
-        else
-          render "new", alert: "Failed to send request."
-        end
-      # elsif host_member
-           # redirect_to root_url, alert: "You cannot request a seat if you are the host."
+      if current_member    
+         @request = current_member.requests.build(:roundtable_id => params[:roundtable_id])
+            if @request.save
+              redirect_to root_url, notice: "Thank you for your request, the host has been notified."
+            else
+              render root_url, alert: "Failed to send request."
+            end
       else
         redirect_to root_url, alert: "You must log in before requesting a seat."
       end

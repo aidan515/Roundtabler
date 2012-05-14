@@ -10,4 +10,9 @@
 		<div class ="venue_img-wrapper">
 			<%= image_tag @description.venue_image_url(:profile).to_s%>
 		</div>
+		<div class="map-wrapper">
+		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=640x300&sensor=false&zoom=16&markers=#{@description.latitude}%2C#{@description.longitude}" %>
+		</div>
 </div>
+
+

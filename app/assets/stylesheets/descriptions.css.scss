@@ -10,7 +10,7 @@
 	padding-left: 0px;
 	overflow: hidden;
 	padding-top: 4px;
-	margin-bottom: 0px;
+	padding-bottom: 10px;
 	-webkit-border-radius: 4px;
 	-khtml-border-radius: 4px;	
 	-moz-border-radius-topright: 4px;
@@ -36,7 +36,7 @@
 		float:left;
 		box-shadow: 0 0 8px #444444;
 		border: 2px solid #FFFFFF;
-		margin-bottom: 5px;
+		margin-bottom: 15px;
 	}
 }	
 
@@ -61,4 +61,13 @@
 	font-size: 14px;
 	text-align: left;
 }	
+
+.map-wrapper {
+	img {
+	border-color: #dfdfdf;
+	border-style: solid;
+	border-width: 2px;
+	padding: 2px;
+}
+}
 

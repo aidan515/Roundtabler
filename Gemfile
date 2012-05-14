@@ -6,10 +6,11 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'gmaps4rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'twitter-bootstrap-rails'
+gem 'geocoder'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -24,6 +25,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'gon'
 
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'

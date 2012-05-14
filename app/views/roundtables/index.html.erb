@@ -27,9 +27,11 @@
 			</div>
 			<div class="confirmed-guests">	
 				<% confirmed_guests = Request.find_all_by_roundtable_id_and_confirm(roundtable.id, "True") %>
+				<% unless confirmed_guests.empty? %>
 				Who else is coming?</br>
 				<% confirmed_guests.each do |request|%>
 				<%= image_tag request.user.profile.image_url(:micro).to_s%>
+				<% end %>
 				<% end %>
 			</div>
 		</div>
